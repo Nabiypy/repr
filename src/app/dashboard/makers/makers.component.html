@@ -1,0 +1,75 @@
+<div class="form-container" id="toolbar">
+  <header [@fallIn]="state">
+    <button (click)="onLogout()" class="basic-btn">Logout</button>
+    <span class="displayName">{{userId}}</span>
+  </header>
+  <div id="page" [@moveInLeft]="state">
+    <!--<h2>Hey!</h2>-->
+    <!--<img src="./assets/images/filler.png" />-->
+    <div class="row">
+      <div class="small-12 large-expand columns"></div>
+      <div class="small-12 large-expand columns">
+        <div class="alert help-text" *ngIf="!postForm.controls['product'].valid && postForm.controls['product'].touched">You must specify an alias.</div>
+        <div class="alert help-text" *ngIf="!postForm.controls['amountPaid'].valid && postForm.controls['amountPaid'].touched">You must specify an amount.</div>
+        <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
+          <div class="row">
+            <div class="columns small-12 medium-6">
+              <label>Select Product
+                <select class="txt" name="product" [formControl]="postForm.controls['product']" required>
+                  <option value="DSTV">dstv</option>
+                  <option value="ADSL">adsl</option>
+                  <option value="KWESETV">kwesetv</option>
+                  <option value="SURF">surfline</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="columns small-12 medium-6">
+              <label>Paid amount
+                <input type="number"  class="txt" name="amountPaid" [formControl]="postForm.controls['amountPaid']">
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="columns small-12 medium-12">
+              <label>Bill account
+                <input type="text"  class="txt" name="account" [formControl]="postForm.controls['account']">
+              </label>
+              <div class="alert help-text" *ngIf="!postForm.controls['account'].valid && postForm.controls['account'].touched">Specify alias must be at least 8 characters long.</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="columns small-12 medium-12">
+              <label>Reference
+                <input type="text"  class="txt" name="reference" [formControl]="postForm.controls['reference']">
+              </label>
+              <div class="alert help-text" *ngIf="!postForm.controls['reference'].valid && postForm.controls['reference'].touched">Specify reference must be least 10 characters long.</div>
+            </div>
+          </div>
+
+          <div class="row columns">
+            <label>Comment
+              <textarea  class="txt" name="bug" id="bug" [formControl]="postForm.controls['bug']"></textarea>
+            </label>
+            <div class="alert help-text" *ngIf="!postForm.controls['bug'].valid && postForm.controls['bug'].touched">Specify a reason that's at least 20 characters long.</div>
+            <div class="">
+              <button type="submit" 
+                      [ladda]="isLoading"
+                      class="button primary" 
+                      [disabled]="!postForm.valid">
+                      Submit
+                      </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="small-12 large-expand columns"></div>
+
+    </div>
+  </div>
+
+</div>
+
+
+

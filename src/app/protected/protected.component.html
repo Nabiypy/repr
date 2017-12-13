@@ -1,0 +1,66 @@
+<div class="form-container" id="toolbar">
+  <header [@fallIn]="state">
+    <button (click)="onLogout()" class="basic-btn">Logout</button>
+    <span class="displayName">{{userId}}</span>
+  </header>
+  <div id="page" [@moveInLeft]="state">
+    <!--<h2>Hey!</h2>-->
+    <!--<img src="./assets/images/filler.png" />-->
+    <div class="row">
+      <span class="error help-text text-center" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+      <table class="table-scroll tex">
+        <thead>
+        <tr>
+          <th width="50">_id</th>
+          <th width="80">userId</th>
+          <th width="90">product</th>
+          <th width="120">account</th>
+          <th width="150">reference</th>
+          <th width="100">status</th>
+          <th width="80">paid ¢</th>
+          <th width="85">date_At</th>
+          <th width="100">actions</th>
+          <!--<th width="1">decline</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let post of posts"
+            [ngStyle]="{
+							 'background-color': post.serviceStatus !== '00' ? '#fff6e5' : '',
+							 'text-decoration': post.serviceStatus == '00' ? 'line-through': '',
+							 'pointer-events': post.serviceStatus !== null ? 'none': ''}"
+           >
+          <td>{{post.id}}</td>
+          <td><em>{{post.userId}}</em></td>
+          <td>{{post.product | lowercase}}</td>
+          <td>{{post.account}}</td>
+          <td><em>{{post.reference}}</em></td>
+          <td><em>{{post.state}}</em></td>
+          <td>{{post.amountPaid}}.00</td>
+          <td>{{post.createdAt | date:"longDate" }}</td>
+          <td>
+            <a class="button small" (click)="authorize(post)"><em>Approve</em></a>
+            <a class="button small"><em>X</em></a>
+          </td>
+
+        </tr>
+        <!-- <tr *ngIf="posts.length == 0">
+          <th colspan="15"> 
+             <span class="error help-text text-center" [@fallIn]='state'>
+                Ooops! No results found...
+              </span>
+          </th>
+        </tr> -->
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+

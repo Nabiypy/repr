@@ -1,0 +1,36 @@
+<div class="form-container">
+  <a routerLink="/login" id="goback">Go back</a>
+
+  <h2>Join now</h2>
+
+  <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <input type="text"
+           placeholder="username"
+           id="username"
+           name="username"
+           class="txt"
+           formControlName="username">
+
+    <input type="email"
+           placeholder="Email address.."
+           id="email"
+           name="email"
+           class="txt"
+           formControlName="email">
+
+    <input type="password"
+           placeholder="Password"
+           id="password"
+           name="password"
+           class="txt"
+           formControlName="password">
+
+    <button
+      type="submit"
+      [disabled]="!myForm.valid"
+      class="basic-btn">Submit</button>
+    <!--<a routerLink="/signup" class="alc">Don't have an account?</a>-->
+  </form>
+</div>

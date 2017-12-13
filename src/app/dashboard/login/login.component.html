@@ -1,0 +1,12 @@
+<div class="form-container">
+  <img src="assets/images/lock.svg" id="lock">
+
+  <span class="error help-text text-center"  *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+  <!--<button (click)="loginFb()" id="fb">Login With Facebook</button><br>-->
+  <!--<button (click)="loginGoogle()" id="google">Login With Google</button>-->
+  <button (click)="login()" id="anon" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+  <button routerLink="/login-email" id="email">Support</button>
+
+  <a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
+</div>

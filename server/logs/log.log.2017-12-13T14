@@ -1,0 +1,6 @@
+{"level":"info","message":"info body request >>","timestamp":"2017-12-13T14:00:24.331Z"}
+{"fromAddr":"hanson.peprah@outlook.com","toAddr":"akrongeconnect@gmail.com","subject":"FindMe Extreme Help Support","body":"node mailer post test ... from findme ","level":"info","message":"info","timestamp":"2017-12-13T14:00:24.339Z"}
+{"from":"hanson.peprah@outlook.com","to":"akrongeconnect@gmail.com","subject":"FindMe Extreme Help Support","text":"node mailer post test ... from findme ","level":"info","message":"info: ","timestamp":"2017-12-13T14:00:24.341Z"}
+{"level":"info","message":"info body request >>","timestamp":"2017-12-13T14:01:16.859Z"}
+{"fromAddr":"hanson.peprah@outlook.com","toAddr":"akrongwork@gmail.com","subject":"FindMe Extreme Help Support","body":"node mailer post test ... from findme ","level":"info","message":"info","timestamp":"2017-12-13T14:01:16.861Z"}
+{"from":"hanson.peprah@outlook.com","to":"akrongwork@gmail.com","subject":"FindMe Extreme Help Support","text":"node mailer post test ... from findme ","level":"info","message":"info: ","timestamp":"2017-12-13T14:01:16.862Z"}
